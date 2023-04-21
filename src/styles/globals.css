@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.filtered {
+    filter: blur(3px);
+}
+.filteredb {
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+}
+
+.gradient {
+    background: linear-gradient(45deg, rgb(113, 255, 189) 0%, rgb(255, 251, 125) 100%);
+}
+
+.text {
+    background: linear-gradient(45deg, rgb(113, 255, 189) 0%, rgb(255, 251, 125) 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hovered {
+    position: relative;
+}
+
+.hovered:hover::after {
+    width: 100%;
+}
+
+.hovered::after {
+    transition: all;
+    transition-duration: 400ms;
+    left: 0;
+    bottom: 0;
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    background: linear-gradient(45deg, rgb(113, 255, 189) 0%, rgb(255, 251, 125) 100%);
+
+
+}
