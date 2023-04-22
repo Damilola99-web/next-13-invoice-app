@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .filtered {
-    filter: blur(3px);
+    filter: blur(2px);
 }
 .filteredb {
     filter: blur(0px);

@@ -1,6 +1,6 @@
 // import {} from ""
 
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import Overlay from './Overlay';
 import ThemeToggle from './ThemeToggle';
 
@@ -10,7 +10,7 @@ export default function Navbar({
 	setModalOpen: Dispatch<SetStateAction<boolean>>;
 }) {
 	return (
-		<div className=' dark:bg-dark-dark-purple bg-dark-purple w-full lg:w-[100px] h-[90px] lg:flex-col lg:h-full lg:min-h-screen lg:rounded-r-3xl flex justify-between'>
+		<div className=' z-20 dark:bg-dark-dark-purple bg-dark-purple w-full lg:w-[100px] h-[90px] lg:flex-col lg:h-full lg:min-h-screen lg:rounded-r-3xl flex justify-between'>
 			<div className='h-full w-[90px] lg:w-full lg:h-[100px] bg-purple rounded-r-3xl flex items-center justify-center p-8'>
 				<img
 					src='/logo.svg'

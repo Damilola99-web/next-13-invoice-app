@@ -1,29 +1,29 @@
 export interface Invoice {
-	from: {
-		streetAddress: string;
-		city: string;
-		postalCode: string;
-		country: string;
-	};
-	to: {
-		clientName: string;
-		clientEmail: string;
-		streetAddress: string;
-		city: string;
-		postalCode: string;
-		country: string;
-	};
 	id: string;
-	invoiceDate: Date;
-	paymentTerms: number;
-	Description: string;
+	createdAt: Date;
+	description: string;
+	clientName: string;
+	clientEmail: string;
+	status: 'paid' | 'pending' | 'draft';
+	senderAddress: {
+		street: string;
+		city: string;
+		postCode: string;
+		country: string;
+	};
+	clientAddress: {
+		street: string;
+		city: string;
+		postCode: string;
+		country: string;
+	};
 	items: Item[];
-	status: 'paid' | 'draft' | 'pending';
+	total: number;
 }
 
 export interface Item {
-	itemName: string;
-	qty: number;
+	quantity: number;
 	price: number;
 	total: number;
+	name: string;
 }
