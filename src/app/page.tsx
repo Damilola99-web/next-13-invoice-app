@@ -13,7 +13,7 @@ const invoiceList: InvoiceTYpe[] = [];
 
 export default function Home() {
 	return (
-		<div className=' px-10 py-10 lg:p-20 w-full max-w-[900px] flex flex-col space-y-6'>
+		<div className=' px-5 py-8 lg:p-20 w-full max-w-[900px] flex flex-col space-y-6'>
 			<Header />
 			{invoiceList.map((invoice) => (
 				<Invoice
