@@ -18,7 +18,11 @@ export default function Filter({
 		>
 			<div className='flex space-x-4 items-center'>
 				<span
-					style={filter === 'paid' ? { backgroundColor: '#7d5cfa' } : {}}
+					style={
+						filter === 'paid'
+							? { backgroundColor: '#7d5cfa', borderColor: '#7d5cfa' }
+							: {}
+					}
 					onClick={() => setFilter('paid')}
 					className=' items-center justify-center p-[2px] flex w-4 h-4 rounded hover:border-deep-purple border-[1px] border-grey bg-grey'
 				>
@@ -29,7 +33,11 @@ export default function Filter({
 
 			<div className='flex space-x-4 items-center'>
 				<span
-					style={filter === 'pending' ? { backgroundColor: '#7d5cfa' } : {}}
+					style={
+						filter === 'pending'
+							? { backgroundColor: '#7d5cfa', borderColor: '#7d5cfa' }
+							: {}
+					}
 					onClick={() => setFilter('pending')}
 					className=' items-center justify-center p-[2px] flex w-4 h-4 rounded hover:border-deep-purple border-[1px] border-grey bg-grey'
 				>
@@ -40,7 +48,11 @@ export default function Filter({
 
 			<div className='flex space-x-4 items-center'>
 				<span
-					style={filter === 'draft' ? { backgroundColor: '#7d5cfa' } : {}}
+					style={
+						filter === 'draft'
+							? { backgroundColor: '#7d5cfa', borderColor: '#7d5cfa' }
+							: {}
+					}
 					onClick={() => setFilter('draft')}
 					className=' items-center justify-center p-[2px] flex w-4 h-4 rounded hover:border-deep-purple border-[1px] border-grey bg-grey'
 				>
