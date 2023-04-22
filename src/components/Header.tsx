@@ -10,10 +10,10 @@ export default function Header() {
 	const [filterOpen, setFilterOpen] = useState(false);
 
 	return (
-		<div className=' w-full flex justify-between items-center'>
+		<div className=' w-full flex justify-between items-center space-x-4'>
 			<div className=' flex flex-col'>
 				<p className='text-xl md:text-3xl font-bold '>Invoices</p>
-				<p className='text-sm lg:text-base text-light-gray'>There are 7 total invoices</p>
+				<p className='text-xs lg:text-base text-light-gray'>There are 7 total invoices</p>
 			</div>
 			<div className=' flex space-x-8 items-center'>
 				<div
