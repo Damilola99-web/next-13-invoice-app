@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<head></head>
 			<body
 				style={kumbh.style}
-				className={` text-black dark:text-white bg-light-bg dark:bg-dark-bg w-screen min-h-screen`}
+				className={` overflow-x-hidden text-black dark:text-white bg-light-bg dark:bg-dark-bg w-screen min-h-screen`}
 			>
 				<Provider store={store}>
 					<ThemeProvider

@@ -1,6 +1,8 @@
 export interface Invoice {
 	id: string;
-	createdAt: Date;
+	createdAt: string;
+	paymentDue?: string;
+	paymentTerms?: number;
 	description: string;
 	clientName: string;
 	clientEmail: string;

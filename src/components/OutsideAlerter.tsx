@@ -3,13 +3,21 @@ import { useEffect, Ref, Dispatch, SetStateAction } from 'react';
 /**
  * Hook that alerts clicks outside of the passed ref
  */
-export default function useOutsideAlerter(ref: any, action: Dispatch<SetStateAction<boolean>>) {
+export default function useOutsideAlerter(
+	ref: any,
+	textRef: any,
+	action: Dispatch<SetStateAction<boolean>>
+) {
 	useEffect(() => {
 		/**
 		 * Alert if clicked on outside of element
 		 */
 		function handleClickOutside(event: Event) {
-			if (ref?.current && !ref?.current.contains(event.target)) {
+			if (
+				ref?.current &&
+				!ref?.current.contains(event.target) &&
+				!textRef?.current.contains(event.target)
+			) {
 				action(false);
 			}
 		}

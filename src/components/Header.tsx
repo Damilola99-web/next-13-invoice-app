@@ -1,24 +1,32 @@
 'use client';
 import { setDrawerOpen } from '@/data/slices/formDrawer';
 import { ArrowDown, ArrowDownCircle, ArrowUp, Plus } from 'lucide-react';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Filter from './Filter';
 
 export default function Header() {
 	const dispatch = useDispatch();
 	const [filterOpen, setFilterOpen] = useState(false);
+	// @ts-ignore
+	const { filteredInvoices : invoices, filter } = useSelector((state) => state.invoice);
+	const textRef = useRef<HTMLDivElement>();
 
 	return (
 		<div className=' w-full flex justify-between items-center space-x-4'>
 			<div className=' flex flex-col'>
 				<p className='text-xl md:text-3xl font-bold '>Invoices</p>
-				<p className='text-xs lg:text-base text-light-gray'>There are 7 total invoices</p>
+				<p className='text-xs lg:text-base text-light-gray'>
+					There {invoices.length > 1 ? 'are' : 'is'} {invoices.length}{' '}
+					{filter === null ? 'total' : filter} invoice{invoices.length > 1 ? 's' : ''}
+				</p>
 			</div>
 			<div className=' flex space-x-8 items-center'>
 				<div
+					// @ts-ignore
+					ref={textRef}
 					onClick={(e) => {
-						setFilterOpen(true);
+						setFilterOpen(!filterOpen);
 					}}
 					className='relative flex space-x-2 items-center'
 				>
@@ -35,7 +43,12 @@ export default function Header() {
 							}
 						/>
 					</span>
-					{filterOpen && <Filter setFilterOpen={setFilterOpen} />}
+					{filterOpen && (
+						<Filter
+							textRef={textRef}
+							setFilterOpen={setFilterOpen}
+						/>
+					)}
 				</div>
 				<div
 					onClick={() => dispatch(setDrawerOpen(true))}
