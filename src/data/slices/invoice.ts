@@ -1,7 +1,12 @@
 import { Invoice } from '@/types/Invoice';
 import { createSlice } from '@reduxjs/toolkit';
-import { useEffect } from 'react';
 import invoices from '../data.json';
+
+const localStorageData = localStorage.getItem('invoices');
+
+if (!localStorageData) {
+	localStorage.setItem('invoices', JSON.stringify(invoices));
+}
 
 const initialState: {
 	invoices: Invoice[];
@@ -9,7 +14,7 @@ const initialState: {
 	filteredInvoices: Invoice[];
 } = {
 	// @ts-ignore
-	invoices,
+	invoices: localStorageData ? JSON.parse(localStorageData) : invoices,
 	filter: null,
 	// @ts-ignore
 	filteredInvoices: invoices,
@@ -31,8 +36,25 @@ const invoiceSlice = createSlice({
 				state.filteredInvoices = state.invoices;
 			}
 		},
+		addInvoice(state, action) {
+			const invoice: Invoice = action.payload;
+			state.invoices.push(invoice);
+			localStorage.setItem('invoices', JSON.stringify(state.invoices));
+		},
+		editINvoice(state, action) {
+			const { update, id } = action.payload;
+			state.invoices.forEach((invoice) => {
+				if (invoice.id === id) {
+					invoice = { ...invoice, ...update };
+				}
+			});
+			localStorage.setItem('invoices', JSON.stringify(state.invoices));
+		},
+		deleteInvoice(state, action) {},
 	},
 });
+
+
 
 export default invoiceSlice.reducer;
 
