@@ -1,6 +1,6 @@
 import { Invoice } from '@/types/Invoice';
 import { createSlice } from '@reduxjs/toolkit';
-import invoices from '../data.json';
+
 
 const initialState: {
 	invoices: Invoice[];
